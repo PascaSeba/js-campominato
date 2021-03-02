@@ -14,36 +14,27 @@
   inserito un numero consentito. 
   */
 
-var randomCPUNumbers = numberGenerator(16, 1, 100);
-console.log("Mine: " + randomCPUNumbers);
+var mine = [];
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
+}
 
-function numberGenerator(n, min, max) {
+while (mine.length < 16) {
+  var CPUrandom = getRandomIntInclusive(1, 100); 
+  if (isInArray(CPUrandom, mine) == false) { // Non funziona?
+    mine.push(CPUrandom);
+  }
+}
+console.log("MINE: " + mine);
 
-    var mine = [];
-
-    for (var i = 0; i < n; i++) {
-
-        do {
-            var numeroRandom = Math.floor(Math.random() * (max - min + 1)) + min;
-        } while (mine.includes(numeroRandom));
-
-        mine.push(numeroRandom);
+function isInArray(array, value) { // Non funziona?
+  for (i = 0; i < array.length; i++) {
+    if (value == array[i]) {
+      return true;
     }
-    return mine;
+  }
+  return false;
 }
-
-var numeriGiocati = [];
-
-do {
-  var numeroUtente = parseInt(prompt("Inserisci un numero compreso tra 1 e 100:"));
-  numeriGiocati.push(numeroUtente);
-} while (numeriGiocati.length < 3);
-console.log("Numeri giocati: " + numeriGiocati);
-
-if (numeroUtente == numeriGiocati.length) {
-    alert("Questo numero è già stato inserito. Inserisci un altro numero.");
-    numeriGiocati.pop();
-
-}
-
