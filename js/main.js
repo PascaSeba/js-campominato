@@ -15,6 +15,39 @@
   */
 
 var mine = [];
+var numeriGiocati = [];
+
+
+while (mine.length < 16) {
+  var CPUrandom = getRandomIntInclusive(1, 100); 
+  if (!(isInArray(mine, CPUrandom))) {
+    mine.push(CPUrandom);
+  }
+}
+console.log("MINE: " + mine);
+
+for (i = 0; i < 84; i++) {
+  var tmp = 0;
+  
+  if (!(isInArray(numeriGiocati, CPUrandom))) {
+    numeriGiocati.push(numeroUtente);
+  }
+
+  if (tmp =! 0) {
+    alert("Attenzione! Inserisci un numero");
+  }
+  
+  var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
+
+  tmp++
+}
+
+console.log(numeriGiocati)
+
+
+
+
+
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -22,15 +55,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; 
 }
 
-while (mine.length < 16) {
-  var CPUrandom = getRandomIntInclusive(1, 100); 
-  if (isInArray(CPUrandom, mine) == false) { // Non funziona?
-    mine.push(CPUrandom);
-  }
-}
-console.log("MINE: " + mine);
-
-function isInArray(array, value) { // Non funziona?
+function isInArray(array, value) {
   for (i = 0; i < array.length; i++) {
     if (value == array[i]) {
       return true;
