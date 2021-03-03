@@ -17,43 +17,61 @@
 var mine = [];
 var numeriGiocati = [];
 
+/* do {
+  var difficolta = prompt("Inserisci livello difficoltà: facile, medio o difficile?");
+} while ((difficolta < 0) || (difficolta != "FACILE") || (difficolta != "MEDIO") || (difficolta != "DIFFICILE")); */
+
 
 while (mine.length < 16) {
-  var CPUrandom = getRandomIntInclusive(1, 100); 
-  if (!(isInArray(mine, CPUrandom))) {
+  var CPUrandom = randomNumber(1, 100);
+  if (isInArray(mine, CPUrandom) == false) {
     mine.push(CPUrandom);
   }
 }
 console.log("MINE: " + mine);
 
-for (i = 0; i < 84; i++) {
-  var tmp = 0;
-  
-  if (!(isInArray(numeriGiocati, CPUrandom))) {
+for (var i = 0; i < 84; i++) {
+
+  var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
+  console.log(numeroUtente);
+
+  if (isNaN(numeroUtente)) { // Queste condizioni le potrei mettere fuori dal ciclo?
+    alert("Attenzione: inserire un numero.");
+  }
+  else if (isInArray(mine, numeroUtente)) { // Perché se posiziono questo else if (riga 37) al posto di quello
+    alert("Hai perso! Ricarica la pagina e ritenta." + " -- Punteggio: " + numeriGiocati.length * 10);// di riga 40 allora non funziona?
+    break;
+  }
+  else if (i == 84) {
+    alert("Complimenti! Hai vinto! -- " + "Punteggio: " + numeriGiocati.length * 10);
+  }
+  else if (isInArray(numeriGiocati, numeroUtente)) {
+    alert("Attenzione: numero già presente");
+    i--;
+  }
+  else {
     numeriGiocati.push(numeroUtente);
   }
-
-  if (tmp =! 0) {
-    alert("Attenzione! Inserisci un numero");
-  }
-  
-  var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
-
-  tmp++
 }
 
-console.log(numeriGiocati)
+console.log("Il tuo punteggio: " + numeriGiocati.length * 10);
+console.log("I TUOI NUMERI ESATTI: " + numeriGiocati);
+
+
+// PARTE BONUS
 
 
 
 
+// FINE PARTE BONUS
 
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; 
+
+function randomNumber(min, max) {
+  var result = Math.floor(Math.random() * (max - min + 1)) + min;
+  return result;
 }
+
 
 function isInArray(array, value) {
   for (i = 0; i < array.length; i++) {
