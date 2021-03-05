@@ -83,10 +83,9 @@ for (var i = 0; i < 84; i++) {
     continue;
   }
   else if (isInArray(numeriGiocati, numeroUtente)) {
-    alert("Attenzione: numero già presente"); // In questo modo: scrivo numero e va bene,                   
-  }     //poi lo riscrivo e me lo rimuove, quindi la volta dopo,
-  //riscrivendolo, sarà come non averlo mai scritto, perciò me lo ripusherà e si
-  //ripeterà tutto;
+    alert("Attenzione: numero già presente");
+    continue;
+  }     
   else {
     numeriGiocati.push(numeroUtente);
   }
