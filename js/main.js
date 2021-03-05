@@ -37,7 +37,8 @@ var difficolta = prompt("Inserisci la difficoltà (facile, media o difficile):")
   alert("Devi inserire un livello di difficoltà"); 
   
   //Se lo facessi in questo modo, allora dovrei trovare un modo per fare in modo
-  //di richiedere nuovamente il prompt all'utente se le condizioni sono vere;
+  //di richiedere nuovamente il prompt all'utente se le condizioni sono vere, altrimenti
+  //non succede;
 } */
 
 
