@@ -17,29 +17,11 @@
 var mine = [];
 var numeriGiocati = [];
 
-/* 
------------------------DO... WHILE NON FUNZIONA--------------------------
-
 do {
-  difficolta = prompt("Inserisci la difficoltà (facile, media o difficile):").toUpperCase();
-} while ((difficolta != "DIFFICILE") || (difficolta != "MEDIA") || (difficolta != "FACILE")); 
-
-------------------------DO... WHILE NON FUNZIONA--------------------------
-*/
-
-
-
-
-
-
-var difficolta = prompt("Inserisci la difficoltà (facile, media o difficile):").toUpperCase();
-/* if ((difficolta != "DIFFICILE") || (difficolta != "MEDIA") || (difficolta != "FACILE")) {
-  alert("Devi inserire un livello di difficoltà"); 
-  
-  //Se lo facessi in questo modo, allora dovrei trovare un modo per fare in modo
-  //di richiedere nuovamente il prompt all'utente se le condizioni sono vere, altrimenti
-  //non succede;
-} */
+  var difficolta = prompt("Inserisci la difficoltà (facile, media o difficile):").toUpperCase();
+} while ((difficolta != "DIFFICILE") && (difficolta != "MEDIA") && (difficolta != "FACILE")); 
+/* 1, 1, 1;
+   1, 1, 0; */
 
 
 // PARTE BONUS
@@ -101,10 +83,10 @@ for (var i = 0; i < 84; i++) {
     continue;
   }
   else if (isInArray(numeriGiocati, numeroUtente)) {
-    alert("Attenzione: numero già presente");
-    numeriGiocati.pop(); // In questo modo: scrivo numero e va bene,                   
+    alert("Attenzione: numero già presente"); // In questo modo: scrivo numero e va bene,                   
   }     //poi lo riscrivo e me lo rimuove, quindi la volta dopo,
-  //riscrivendolo, sarà come non averlo mai scritto, perciò me lo ripusherà
+  //riscrivendolo, sarà come non averlo mai scritto, perciò me lo ripusherà e si
+  //ripeterà tutto;
   else {
     numeriGiocati.push(numeroUtente);
   }
